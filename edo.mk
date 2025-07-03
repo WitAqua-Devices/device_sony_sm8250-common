@@ -394,6 +394,9 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 # WiFi Display
+PRODUCT_PACKAGES += \
+    android.media.audio.common.types-V3-cpp 
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-wfd.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-wfd.xml
 
