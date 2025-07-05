@@ -76,6 +76,14 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .replace_needed('android.media.audio.common.types-V3-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
     (
+        'system_ext/lib/libwfdcommonutils.so',
+    ): blob_fixup()
+        .add_needed('libpiex_shim.so')
+    (
+        'system_ext/lib64/libwfdcommonutils.so',
+    ): blob_fixup()
+        .add_needed('libpiex_shim.so')
+    (
         'system_ext/lib64/libwfdnative.so',
     ): blob_fixup()
         .replace_needed('android.hidl.base@1.0.so', 'libhidlbase.so')
