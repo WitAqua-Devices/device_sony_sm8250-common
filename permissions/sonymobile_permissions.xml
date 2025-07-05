@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+   <!-- Group that can access secure data manager keystore.  -->
+    <permission name="com.sonymobile.permission.SECURE_DATA_MANAGER">
+        <group gid="oem_2996" />
+    </permission>
+
+    <!-- Group that can access credential manager keystore.  -->
+    <permission name="com.sonyericsson.permission.CREDENTIALMANAGER">
+        <group gid="oem_2996" />
+    </permission>
+</permissions>

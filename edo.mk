@@ -188,6 +188,10 @@ $(call soong_config_set,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
+# Charger
+PRODUCT_PACKAGES += \
+    vendor.semc.hardware.charger@1.0.vendor
+
 # Common init scripts
 PRODUCT_PACKAGES += \
     init_thermal.sh \
@@ -235,7 +239,10 @@ PRODUCT_PACKAGES += \
     gralloc.qcom \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer-service \
-    vendor.qti.hardware.memtrack-service
+    vendor.qti.hardware.memtrack-service\
+    vendor.semc.hardware.display@2.0.vendor\
+    vendor.semc.hardware.display@2.1.vendor\
+    vendor.semc.hardware.display@2.2.vendor
 
 # DRM
 PRODUCT_PACKAGES += \

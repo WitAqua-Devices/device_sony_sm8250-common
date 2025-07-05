@@ -1679,3 +1679,28 @@ vendor/etc/wifi/wpa_supplicant_overlay.conf
 # SIM control
 odm/bin/sony_ext_uim_ctrl
 odm/etc/init/sony_ext_uim_ctrl.rc
+
+# SEMC library
+system_ext/framework/com.sonymobile.securedatamanager_impl.jar
+system_ext/etc/permissions/com.sonymobile.securedatamanager.xml
+product/etc/permissions/privapp-permissions-product.xml
+system/etc/permissions/privapp-permissions-sony.xml
+system_ext/etc/permissions/privapp-permissions-system-ext.xml
+
+# SEMC Camera
+system/app/CameraExtensionsProxy/CameraExtensionsProxy.apk
+product/app/CameraAddonPermission/CameraAddonPermission.apk;PRESIGNED
+product/app/CameraCommonPermission/CameraCommonPermission.apk;PRESIGNED
+product/app/SomcCinemaPro-xxhdpi-release/SomcCinemaPro-xxhdpi-release.apk;PRESIGNED
+product/priv-app/CameraCommon/CameraCommon.apk:product/app/CameraCommon/CameraCommon.apk;PRESIGNED
+product/priv-app/SemcCameraUI-xxhdpi-release/SemcCameraUI-xxhdpi-release.apk:product/app/SemcCameraUI-xxhdpi-release/SemcCameraUI-xxhdpi-release.apk;PRESIGNED
+product/priv-app/SomcPhotoPro-xxhdpi-release/SomcPhotoPro-xxhdpi-release.apk:product/app/SomcPhotoPro-xxhdpi-release/SomcPhotoPro-xxhdpi-release.apk;PRESIGNED
+product/priv-app/CameraPanorama-release/CameraPanorama-release.apk:product/app/CameraPanorama-release/CameraPanorama-release.apk;PRESIGNED
+product/priv-app/com.sonymobile.addoncamera.portraitselfie/com.sonymobile.addoncamera.portraitselfie.apk:product/app/com.sonymobile.addoncamera.portraitselfie/com.sonymobile.addoncamera.portraitselfie.apk;PRESIGNED
+
+# SEMC Music
+system_ext/priv-app/SemcMusic/SemcMusic.apk:system_ext/app/SemcMusic/SemcMusic.apk;PRESIGNED
+system_ext/etc/permissions/privapp-permissions-system-ext.xml
+
+# External Monitor
+product/priv-app/ExtMonitorApp/ExtMonitorApp.apk:product/app/ExtMonitorApp/ExtMonitorApp.apk;PRESIGNED
