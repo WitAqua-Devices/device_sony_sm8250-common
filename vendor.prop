@@ -152,6 +152,7 @@ ro.crypto.volume.filenames_mode=aes-256-cts
 # Display
 ro.vendor.display.cabl=0
 ro.surface_flinger.enable_frame_rate_override=false
+ro.surface_flinger.supports_background_blur=1
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.has_HDR_display=true
 ro.surface_flinger.has_wide_color_display=true
@@ -243,14 +244,15 @@ persist.vendor.sensors.allow_non_default_discovery=true
 sys.vendor.shutdown.waittime=500
 
 # USB
+sys.usb.mtp.batchcancel=1
 vendor.usb.diag.func.name=diag
 vendor.usb.dpl.inst.name=dpl
 vendor.usb.qdss.inst.name=qdss
 vendor.usb.rmnet.func.name=gsi
 vendor.usb.rmnet.inst.name=rmnet
 vendor.usb.rndis.func.name=gsi
-vendor.usb.use_ffs_mtp=0
-vendor.usb.use_gadget_hal=0
+vendor.usb.use_ffs_mtp=1
+vendor.usb.use_gadget_hal=1
 
 # Wifi
 wifi.aware.interface=wifi-aware0

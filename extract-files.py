@@ -84,12 +84,6 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .add_needed('libpiex_shim.so'),
     (
-        'system_ext/lib64/libwfdnative.so',
-    ): blob_fixup()
-        .replace_needed('android.hidl.base@1.0.so', 'libhidlbase.so')
-        .add_needed('libbinder_shim.so')
-        .add_needed('libinput_shim.so'),
-    (
         'vendor/lib64/libvpplibrary.so',
         'vendor/lib64/libswiqisettinghelper.so',
         'vendor/lib64/vendor.somc.hardware.swiqi@1.0-impl.so',
@@ -100,6 +94,7 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .replace_needed('libhidltransport.so', 'libcutils-v29.so'),
     (
+        'vendor/lib64/libcammw.so',
         'vendor/lib64/vendor.semc.hardware.extlight-V1-ndk_platform.so',
     ): blob_fixup()
         .replace_needed('android.hardware.light-V1-ndk_platform.so', 'android.hardware.light-V1-ndk.so'),
@@ -131,6 +126,19 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libwvhidl.so',
     ): blob_fixup()
         .add_needed('libcrypto_shim.so'),
+    (
+        'vendor/lib64/libsomc_camerahal.so',
+        'vendor/lib64/libsomc_chokoballcmn.so',
+    ): blob_fixup()
+        .replace_needed('libui.so', 'libui-v34.so'),
+    (
+        'system_ext/lib64/libwfdnative.so',
+    ) : blob_fixup()
+        .add_needed('libinput_shim.so'),
+    (
+        'vendor/lib64/libdpps.so',
+    ): blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     (
         'system/lib64/libDtvULayer.so',
     ): blob_fixup()

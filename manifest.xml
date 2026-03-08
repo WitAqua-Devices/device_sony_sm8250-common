@@ -182,11 +182,6 @@
       <fqname>@1.1::IDeviceSecurity/default</fqname>
     </hal>
     <hal format="hidl">
-      <name>vendor.qti.hardware.iop</name>
-      <transport>hwbinder</transport>
-      <fqname>@2.0::IIop/default</fqname>
-    </hal>
-    <hal format="hidl">
       <name>vendor.qti.esepowermanager</name>
       <transport>hwbinder</transport>
       <fqname>@1.1::IEsePowerManager/default</fqname>
@@ -196,11 +191,6 @@
       <transport>hwbinder</transport>
       <fqname>@1.0::IIdd/default</fqname>
       <fqname>@1.0::IIdd/logreader</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.perf</name>
-        <transport>hwbinder</transport>
-        <fqname>@2.2::IPerf/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.semc.hardware.display</name>
@@ -328,6 +318,16 @@
         </interface>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.media.c2</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IComponentStore</name>
+            <instance>default</instance>
+            <instance>software</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.qspmhal</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -341,10 +341,5 @@
         <name>vendor.semc.hardware.charger</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::ICharger/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.media.c2</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IComponentStore/default</fqname>
     </hal>
 </manifest>
