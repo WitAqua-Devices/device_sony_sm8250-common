@@ -139,14 +139,6 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libdpps.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
-    (
-        'system/lib64/libDtvULayer.so',
-    ): blob_fixup()
-        .add_needed('libaudioclient_shim.so')
-        .add_needed('libpiex_shim.so')
-        .add_needed('libui_shim.so')
-        .add_needed('libgui_shim.so')
-        .add_needed('libdtv_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

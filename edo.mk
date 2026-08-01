@@ -437,9 +437,5 @@ PRODUCT_PACKAGES += \
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_sm8250)
 
-# DTV
-PRODUCT_PACKAGES += \
-    libdtv_shim
-
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
