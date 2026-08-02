@@ -1660,5 +1660,3 @@ system_ext/etc/permissions/privapp-permissions-system-ext.xml
 # External Monitor
 product/priv-app/ExtMonitorApp/ExtMonitorApp.apk:product/app/ExtMonitorApp/ExtMonitorApp.apk;PRESIGNED
 
-# SideSense
-system_ext/priv-app/SideSenseApp/SideSenseApp.apk:system/app/SideSenseApp/SideSenseApp.apk
