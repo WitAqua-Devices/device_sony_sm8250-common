@@ -1,0 +1,11 @@
+//
+// Copyright (C) 2026 The WitAqua Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_static {
+    name: "libinit_sm8250",
+    srcs: ["init_sm8250.cpp"],
+    recovery_available: true,
+    header_libs: ["libbase_headers"],
+}

@@ -434,6 +434,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XperiaParts
 
+# Init
+$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_sm8250)
+
 # DTV
 PRODUCT_PACKAGES += \
     libdtv_shim
