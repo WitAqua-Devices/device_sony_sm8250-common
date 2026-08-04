@@ -435,7 +435,11 @@ PRODUCT_PACKAGES += \
     XperiaParts
 
 # Init
-$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_sm8250)
+# inherit-product pulls this file in after the device makefile that inherits
+# it, so a device cannot win by calling soong_config_set later - it sets
+# SONY_VENDOR_INIT_LIB instead and the ?= below leaves it alone.
+SONY_VENDOR_INIT_LIB ?= //$(LOCAL_PATH):libinit_sm8250
+$(call soong_config_set,libinit,vendor_init_lib,$(SONY_VENDOR_INIT_LIB))
 
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
