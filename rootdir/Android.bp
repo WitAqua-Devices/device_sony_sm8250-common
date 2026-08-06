@@ -74,6 +74,20 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "init.nfc_sony.rc",
+    src: "etc/init.nfc_sony.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.felica.rc",
+    src: "etc/init.felica.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "init.sony.rc",
     src: "etc/init.sony.rc",
     sub_dir: "init",

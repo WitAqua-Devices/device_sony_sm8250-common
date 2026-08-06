@@ -19,6 +19,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
+    'device/sony/sm8250-common',
     'hardware/qcom-caf/sm8250',
     'hardware/qcom-caf/wlan',
     'hardware/sony',
@@ -142,6 +143,26 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libdpps.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    (
+        'vendor/lib64/ese_spi_nxp.so',
+    ): blob_fixup()
+        # Built against the libbase of Android 12, where android::base::Trim()
+        # was not a template yet; libnfc_shim brings the old symbol back.
+        .add_needed('libnfc_shim.so'),
+    (
+        'vendor/etc/init/android.hardware.secure_element@1.2-service.rc',
+    ): blob_fixup()
+        # Only the japanese models have an eSE behind /dev/p73; init.felica.rc
+        # starts the service once the LTALabel model says so.
+        .regex_replace('(\n    class hal)', r'\1\n    disabled')
+        # host_init_verifier only knows hidl_interface targets that are built
+        # from source, and vendor.nxp.eventprocessor is blob-only. The line is
+        # for lazy registration, which we do not use - the service is started
+        # explicitly.
+        .regex_replace(
+            '\n    interface vendor\\.nxp\\.eventprocessor@1\\.0::INxpEseEvtProcessor default',
+            '',
+        ),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

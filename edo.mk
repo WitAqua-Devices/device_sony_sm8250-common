@@ -312,11 +312,25 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nxp-typef.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp-typef.conf \
     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
 
+# The NFC and eSE HALs come from the stock blobs; see proprietary-files.txt.
+# The HIDL interfaces they link against still come from hardware/nxp.
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2-service \
     com.android.nfc_extras \
+    libnfc_shim \
+    vendor.nxp.nxpese@1.0 \
+    vendor.nxp.nxpnfc@2.0 \
     SecureElement \
     Tag
+
+# eSE (FeliCa secure element, reached over SPI as /dev/p73). The stock init
+# entry is patched to "disabled" in extract-files.py; init.felica.rc brings the
+# service up on the japanese models only.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/nfc/libese-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libese-nxp.conf
+
+PRODUCT_PACKAGES += \
+    init.felica.rc \
+    init.nfc_sony.rc
 
 # Partitions
 PRODUCT_PACKAGES += \

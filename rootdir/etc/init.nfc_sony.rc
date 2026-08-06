@@ -1,0 +1,17 @@
+#
+# Copyright (C) 2026 The WitAqua Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# The stock NFC HAL, installed as .sony so it does not collide with the module
+# hardware/nxp/nfc defines under the same name. We need the stock one because
+# the AOSP HAL has no eSE support at all - see proprietary-files.txt.
+#
+# oem_2993 is what the stock init entry asks for; it is the group the TA
+# partition data the HAL reads through libmiscta lives under.
+
+service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service.sony
+    class hal
+    user nfc
+    group nfc oem_2993

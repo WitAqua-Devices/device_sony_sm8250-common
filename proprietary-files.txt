@@ -1045,6 +1045,30 @@ vendor/lib64/unnhal-acc-hvx.so
 # NFC Firmware
 vendor/lib64/libpn557_fw.so
 
+# NFC and eSE HAL
+# The AOSP hardware/nxp/nfc HAL has no eSE support at all: no
+# NXP_ESE_POWER_DH_CONTROL, no phNxpNciHal_setEseState, no SVDD wait. On the
+# PN81T the eSE's SVDD comes out of the NFC controller, so without that the
+# chip is never powered - NFCEE discovery returns nothing and the eSE stays
+# silent on SPI (reads come back as the bus pull-up). Use the stock HAL, which
+# has the whole eSE state machine, instead of building it from source.
+# Installed under a .sony name so that neither the binary nor the init entry
+# collides with the module hardware/nxp/nfc still defines; init.nfc_sony.rc in
+# rootdir/ is the service definition for it.
+vendor/bin/hw/android.hardware.nfc@1.2-service:vendor/bin/hw/android.hardware.nfc@1.2-service.sony
+vendor/bin/hw/android.hardware.secure_element@1.2-service
+vendor/etc/init/android.hardware.secure_element@1.2-service.rc
+vendor/etc/libnfc-nxp_RF.conf
+vendor/lib64/ese_client.so
+vendor/lib64/ese_spi_nxp.so
+vendor/lib64/hal_libnfc.so
+vendor/lib64/ls_client.so
+vendor/lib64/nfc_nci_nxp.so
+# vendor.nxp.nxpese@1.0 and vendor.nxp.nxpnfc@2.0 are built from source in
+# hardware/nxp; only the two interfaces AOSP does not carry are taken as blobs.
+vendor/lib64/vendor.nxp.eventprocessor@1.0.so
+vendor/lib64/vendor.nxp.nxpnfclegacy@1.0.so
+
 # Peripheral manager
 vendor/bin/pm-proxy
 vendor/bin/pm-service
@@ -1660,3 +1684,17 @@ system_ext/etc/permissions/privapp-permissions-system-ext.xml
 # External Monitor
 product/priv-app/ExtMonitorApp/ExtMonitorApp.apk:product/app/ExtMonitorApp/ExtMonitorApp.apk;PRESIGNED
 
+# FeliCa (Osaifu-Keitai)
+# Only the Japanese models carry the eSE these live on; the blobs below come
+# from SOG01 58.2.C.5.10. MobileFeliCaClient 6.3.0 is the OMAPI flavour, so it
+# reaches the chip through android.se.omapi/eSE1 and needs no FeliCa-specific
+# HAL or shared library of its own.
+product/app/MobileFeliCaClient/MobileFeliCaClient.apk;PRESIGNED
+product/app/MobileFeliCaMenuMainApp/MobileFeliCaMenuMainApp.apk;PRESIGNED
+product/app/MobileFeliCaSettingApp/MobileFeliCaSettingApp.apk;PRESIGNED
+product/app/MobileFeliCaWebPluginBoot/MobileFeliCaWebPluginBoot.apk;PRESIGNED
+# 02020001 in common.cfg is the model string the FeliCa applications report
+# ("SOG01"), so that one is carrier specific.
+vendor/etc/felica/common.cfg
+vendor/etc/felica/mfm.cfg
+vendor/etc/felica/mfs.cfg

@@ -1,0 +1,24 @@
+#
+# Copyright (C) 2026 The WitAqua Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Only the Japanese models carry the FeliCa secure element embedded in the
+# PN81T; everywhere else the controller is a plain PN557 with nothing behind
+# /dev/p73. extract-files.py adds "disabled" to the stock init entry so the
+# service stays down until one of the models below is detected, which keeps
+# OMAPI from publishing an eSE1 reader that can never answer.
+#
+# ro.vendor.ltalabel.model comes from the LTALabel partition (see libinit and
+# init.qcom.msim.sh); stock keys this off ro.odm.build.SomcCntrl.device, which
+# we do not set because odm is built from source.
+
+on post-fs-data && property:ro.vendor.ltalabel.model=SO-51A
+    start vendor.secure_element_hal_service_1_2
+
+on post-fs-data && property:ro.vendor.ltalabel.model=SOG01
+    start vendor.secure_element_hal_service_1_2
+
+on post-fs-data && property:ro.vendor.ltalabel.model=XQ-AT42
+    start vendor.secure_element_hal_service_1_2
