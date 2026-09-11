@@ -12,7 +12,8 @@
 #
 # ro.vendor.ltalabel.model comes from the LTALabel partition (see libinit and
 # init.qcom.msim.sh); stock keys this off ro.odm.build.SomcCntrl.device, which
-# we do not set because odm is built from source.
+# we do not set because odm is built from source. The first three models are
+# pdx203, the rest pdx206.
 
 on post-fs-data && property:ro.vendor.ltalabel.model=SO-51A
     start vendor.secure_element_hal_service_1_2
@@ -21,4 +22,16 @@ on post-fs-data && property:ro.vendor.ltalabel.model=SOG01
     start vendor.secure_element_hal_service_1_2
 
 on post-fs-data && property:ro.vendor.ltalabel.model=XQ-AT42
+    start vendor.secure_element_hal_service_1_2
+
+on post-fs-data && property:ro.vendor.ltalabel.model=SO-52A
+    start vendor.secure_element_hal_service_1_2
+
+on post-fs-data && property:ro.vendor.ltalabel.model=SOG02
+    start vendor.secure_element_hal_service_1_2
+
+on post-fs-data && property:ro.vendor.ltalabel.model=A002SO
+    start vendor.secure_element_hal_service_1_2
+
+on post-fs-data && property:ro.vendor.ltalabel.model=XQ-AS42
     start vendor.secure_element_hal_service_1_2

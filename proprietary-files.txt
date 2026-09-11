@@ -1693,5 +1693,6 @@ product/app/MobileFeliCaClient/MobileFeliCaClient.apk;PRESIGNED
 product/app/MobileFeliCaMenuMainApp/MobileFeliCaMenuMainApp.apk;PRESIGNED
 product/app/MobileFeliCaSettingApp/MobileFeliCaSettingApp.apk;PRESIGNED
 product/app/MobileFeliCaWebPluginBoot/MobileFeliCaWebPluginBoot.apk;PRESIGNED
-# The apks are identical on every japanese model; the configuration next to
-# them is per model, so it lives in the device tree instead.
+# The apks are identical on every japanese model and update themselves from
+# the Play Store, so which dump they came from hardly matters. The
+# configuration next to them is per model and lives in the device tree.
