@@ -329,7 +329,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libese-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libese-nxp.conf
 
 PRODUCT_PACKAGES += \
+    FelicaParts \
     init.felica.rc \
+    init.felica_model.rc \
     init.nfc_sony.rc
 
 # Partitions
