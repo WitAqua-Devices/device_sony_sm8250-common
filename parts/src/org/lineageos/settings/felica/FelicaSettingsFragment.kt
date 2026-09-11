@@ -15,7 +15,7 @@ import java.io.File
 const val FELICA_MODEL_KEY = "felicaModel"
 
 /* init.felica_model.rc binds /vendor/etc/felica_<value> over /vendor/etc/felica. */
-const val FELICA_MODEL_PROP = "persist.sony.felica.model"
+const val FELICA_MODEL_PROP = "persist.felica.model"
 
 private const val FELICA_DIR = "/vendor/etc"
 private const val FELICA_PREFIX = "felica_"

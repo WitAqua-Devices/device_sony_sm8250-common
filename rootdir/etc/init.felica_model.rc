@@ -13,5 +13,9 @@
 # app: /vendor and /odm scripts expand ${} through vendor_init, which cannot
 # read a system property, and a vendor property cannot be set from an app at
 # all. init parses this one itself, so it can read either.
-on property:persist.sony.felica.model=*
-    mount none /vendor/etc/felica_${persist.sony.felica.model} /vendor/etc/felica bind
+#
+# The name is shared with every other device that ships this, which is why it
+# carries no vendor segment: the same setprop works on joan_jp, where a model
+# is spelled as an LG SKU instead.
+on property:persist.felica.model=*
+    mount none /vendor/etc/felica_${persist.felica.model} /vendor/etc/felica bind
