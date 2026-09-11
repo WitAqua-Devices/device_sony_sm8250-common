@@ -19,6 +19,13 @@ on early-init
     exec_start msim_sh
     setprop ro.boot.product.hardware.sku ${vendor.radio.hardware.sku}
 
+    # The FeliCa configuration is per model and every SKU shares one build, so
+    # bind the matching set over the canonical one. Has to be here rather than
+    # off ro.vendor.ltalabel.model, which is only published in post-fs - by
+    # then a bind mount no longer reaches fds that are already open. Models
+    # without a copy of their own keep what is there; init ignores ENOENT.
+    mount none /vendor/etc/felica_${vendor.radio.ltalabel.model} /vendor/etc/felica bind
+
 on post-fs
     setprop persist.radio.multisim.config ${vendor.radio.hardware.sku}${vendor.radio.hardware.sku}
     setprop ro.vendor.ltalabel.model ${vendor.radio.ltalabel.model}

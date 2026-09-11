@@ -1693,8 +1693,5 @@ product/app/MobileFeliCaClient/MobileFeliCaClient.apk;PRESIGNED
 product/app/MobileFeliCaMenuMainApp/MobileFeliCaMenuMainApp.apk;PRESIGNED
 product/app/MobileFeliCaSettingApp/MobileFeliCaSettingApp.apk;PRESIGNED
 product/app/MobileFeliCaWebPluginBoot/MobileFeliCaWebPluginBoot.apk;PRESIGNED
-# 02020001 in common.cfg is the model string the FeliCa applications report
-# ("SOG01"), so that one is carrier specific.
-vendor/etc/felica/common.cfg
-vendor/etc/felica/mfm.cfg
-vendor/etc/felica/mfs.cfg
+# The apks are identical on every japanese model; the configuration next to
+# them is per model, so it lives in the device tree instead.
